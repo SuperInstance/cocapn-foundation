@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #EFEBE2; }
+    a { color: inherit; }
+  </style>
+</helmet>
+
+<div style="min-height: 100vh; background: #EFEBE2; font-family: Archivo, sans-serif; color: #16232E; padding: 56px 24px 96px 24px; display: flex; justify-content: center;">
+  <div style="width: 100%; max-width: 1060px; display: flex; flex-direction: column; gap: 64px;">
+
+    <header style="display: flex; flex-direction: column; gap: 20px; border-bottom: 3px solid #16232E; padding-bottom: 28px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #5B6670;">
+        <span>FOUNDATION BRIEF · REV 1</span>
+        <span>COCAPN.COM · ACTIVELOG.AI</span>
+      </div>
+      <h1 style="margin: 0; font-size: 54px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.02;">Cocapn / ActiveLog</h1>
+      <p style="margin: 0; font-size: 20px; line-height: 1.45; max-width: 720px; color: #33404B;">
+        Voice is the interface. The log is the product. The boat becomes a robot one wire at a time.
+        A hands-free helm assistant and always-on timestamped logger — labeled training data as a
+        byproduct of a captain talking while he works.
+      </p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="foundation/README.md" style="text-decoration: none; background: #16232E; color: #EFEBE2; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 14px;">README</a>
+        <a href="foundation/VISION.md" style="text-decoration: none; background: #E8542A; color: #FFF6EE; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 14px;">VISION</a>
+        <a href="foundation/ARCHITECTURE.md" style="text-decoration: none; border: 1.5px solid #16232E; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 14px;">ARCHITECTURE</a>
+        <a href="foundation/SAFETY.md" style="text-decoration: none; border: 1.5px solid #16232E; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 14px;">SAFETY</a>
+        <a href="foundation/ROADMAP.md" style="text-decoration: none; border: 1.5px solid #16232E; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 14px;">ROADMAP</a>
+      </div>
+    </header>
+
+    <section style="display: grid; grid-template-columns: 220px 1fr; gap: 32px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #E8542A; font-weight: 600;">01 · THE WEDGE</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div style="background: #FDFBF6; border: 1.5px solid #16232E; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5B6670;">FREE · NO HARDWARE</div>
+          <div style="font-size: 22px; font-weight: 700;">Timestamped dictation for fishing work</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #33404B;">Talk all day. Segments close on extended pauses, stamped with time and GPS. The download hook — finished-feeling on its own.</p>
+        </div>
+        <div style="background: #16232E; color: #EFEBE2; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #E8542A;">$40 BOX · REMOTE PORT</div>
+          <div style="font-size: 22px; font-weight: 700;">Voice autopilot via the Helm unit</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #B9C2CA;">An ESP32 that emulates the autopilot's own remote. "Cocapn — port ten." The unused Helm tab is the upsell that sells itself.</p>
+        </div>
+        <p style="grid-column: 1 / -1; margin: 0; font-size: 16px; line-height: 1.5; color: #33404B; border-left: 3px solid #E8542A; padding-left: 16px;">
+          <strong>The captain never does data-entry.</strong> Narration + time-anchored media = supervised
+          labels for cameras, sounders, and future automation. That sentence is the whole company.
+        </p>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: 220px 1fr; gap: 32px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #E8542A; font-weight: 600;">02 · THE STACK</div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: grid; grid-template-columns: 44px 190px 1fr; gap: 16px; align-items: center; background: #FDFBF6; border: 1.5px solid #C9C2B4; padding: 14px 18px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: #5B6670;">L5</span>
+          <span style="font-weight: 700;">Intelligence</span>
+          <span style="font-size: 14px; color: #33404B;">BYOK chat · RL &amp; vision training · fleet analytics · conversational provisioner</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 44px 190px 1fr; gap: 16px; align-items: center; background: #FDFBF6; border: 1.5px solid #C9C2B4; padding: 14px 18px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: #5B6670;">L4</span>
+          <span style="font-weight: 700;">Sync <span style="font-weight: 400; color: #5B6670;">(optional)</span></span>
+          <span style="font-size: 14px; color: #33404B;">BYO Cloudflare · append-only exchange · fleet sharing, opt-in per event type</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 44px 190px 1fr; gap: 16px; align-items: center; background: #16232E; color: #EFEBE2; padding: 16px 18px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: #E8542A;">L3</span>
+          <span style="font-weight: 700;">ActiveLog</span>
+          <span style="font-size: 14px; color: #B9C2CA;">the substrate — append-only timestamped events · media anchored by time · merge = set union</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 44px 190px 1fr; gap: 16px; align-items: center; background: #FDFBF6; border: 1.5px solid #C9C2B4; padding: 14px 18px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: #5B6670;">L2</span>
+          <span style="font-weight: 700;">Brain</span>
+          <span style="font-size: 14px; color: #33404B;">captain's phone / laptop · wake word · STT · closed command grammar · dictation</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 44px 190px 1fr; gap: 16px; align-items: center; background: #FDFBF6; border: 1.5px solid #C9C2B4; padding: 14px 18px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: #5B6670;">L1</span>
+          <span style="font-weight: 700;">Edge</span>
+          <span style="font-size: 14px; color: #33404B;">ESP32 Helm units · cameras · GPS · sounder — dumb, safe, profile-driven</span>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5B6670; padding-top: 8px;">RULE OF THE STACK — layers 1–3 work with no internet, ever. Everything above is progressive enhancement.</div>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: 220px 1fr; gap: 32px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #E8542A; font-weight: 600;">03 · THE REPOS</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <sc-for list="{{ repos }}" as="r" hint-placeholder-count="7">
+          <a href="{{ r.href }}" style="text-decoration: none; background: #FDFBF6; border: 1.5px solid #16232E; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;" style-hover="background: #16232E; color: #EFEBE2;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: #E8542A;">{{ r.name }}</span>
+            <span style="font-size: 14px; line-height: 1.45;">{{ r.desc }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: 220px 1fr; gap: 32px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #E8542A; font-weight: 600;">04 · SAFETY CHAIN</div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+          <div style="border-top: 3px solid #16232E; padding-top: 10px;"><div style="font-weight: 700; font-size: 14px;">Physics</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4;">normally-open outputs; power loss = release</div></div>
+          <div style="border-top: 3px solid #16232E; padding-top: 10px;"><div style="font-weight: 700; font-size: 14px;">Hardware WDT</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4;">stalled loop resets chip; boot = released</div></div>
+          <div style="border-top: 3px solid #16232E; padding-top: 10px;"><div style="font-weight: 700; font-size: 14px;">Supervisor</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4;">500 ms TTL · override lockout · link-loss release</div></div>
+          <div style="border-top: 3px solid #16232E; padding-top: 10px;"><div style="font-weight: 700; font-size: 14px;">Command class</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4;">C0 info → C3 propulsion; escalating confirmation</div></div>
+          <div style="border-top: 3px solid #E8542A; padding-top: 10px;"><div style="font-weight: 700; font-size: 14px; color: #E8542A;">Human</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4;">touching the real helm outranks everything, always</div></div>
+        </div>
+        <div style="font-size: 14px; color: #33404B;">Dictation mode has <strong>no code path</strong> to actuation. Full defense in <a href="foundation/SAFETY.md" style="color: #E8542A; font-weight: 600;">SAFETY.md</a>.</div>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: 220px 1fr; gap: 32px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #E8542A; font-weight: 600;">05 · THE ROAD</div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+        <div style="background: #FDFBF6; border: 1.5px solid #C9C2B4; padding: 14px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5B6670;">PHASE 0</div><div style="font-weight: 700; font-size: 14px; margin-top: 4px;">Spec + free app</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4; margin-top: 4px;">freeze ActiveLog v1; dictation MVP ships</div></div>
+        <div style="background: #FDFBF6; border: 1.5px solid #C9C2B4; padding: 14px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5B6670;">PHASE 1</div><div style="font-weight: 700; font-size: 14px; margin-top: 4px;">My boat</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4; margin-top: 4px;">ComNav P-series verified; sea trial passes</div></div>
+        <div style="background: #FDFBF6; border: 1.5px solid #C9C2B4; padding: 14px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5B6670;">PHASE 2</div><div style="font-weight: 700; font-size: 14px; margin-top: 4px;">Anyone's boat</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4; margin-top: 4px;">profiles + provisioner; maker pilot; BYOK chat</div></div>
+        <div style="background: #FDFBF6; border: 1.5px solid #C9C2B4; padding: 14px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5B6670;">PHASE 3</div><div style="font-weight: 700; font-size: 14px; margin-top: 4px;">Perception + fleet</div><div style="font-size: 12.5px; color: #5B6670; line-height: 1.4; margin-top: 4px;">cameras, chart overlays, two-boat sync</div></div>
+        <div style="background: #16232E; color: #EFEBE2; padding: 14px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #E8542A;">PHASE 4</div><div style="font-weight: 700; font-size: 14px; margin-top: 4px;">Vessel-as-a-Robot</div><div style="font-size: 12.5px; color: #B9C2CA; line-height: 1.4; margin-top: 4px;">any role by conversation; beyond fishing</div></div>
+      </div>
+    </section>
+
+    <sc-if value="{{ showFileMap }}" hint-placeholder-val="{{ true }}">
+      <section style="display: grid; grid-template-columns: 220px 1fr; gap: 32px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #E8542A; font-weight: 600;">06 · KEY SOURCES</div>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">
+          <a href="foundation/repos/activelog-spec/schema/event.schema.json" style="color: #16232E;">activelog-spec/schema/event.schema.json — the v1 envelope</a>
+          <a href="foundation/repos/activelog-spec/examples/troll-day.jsonl" style="color: #16232E;">activelog-spec/examples/troll-day.jsonl — a day of trolling, as events</a>
+          <a href="foundation/repos/cocapn-helm-firmware/snippets/autopilot_hal.h" style="color: #16232E;">cocapn-helm-firmware/snippets/autopilot_hal.h — the profile interpreter</a>
+          <a href="foundation/repos/cocapn-helm-firmware/snippets/watchdog.cpp" style="color: #16232E;">cocapn-helm-firmware/snippets/watchdog.cpp — the safety supervisor</a>
+          <a href="foundation/repos/autopilot-profiles/comnav-p-series.json" style="color: #16232E;">autopilot-profiles/comnav-p-series.json — wires, words, and GUI in one file</a>
+          <a href="foundation/repos/cocapn-app/snippets/voice_state_machine.ts" style="color: #16232E;">cocapn-app/snippets/voice_state_machine.ts — wake / command / dictation core</a>
+        </div>
+      </section>
+    </sc-if>
+
+    <footer style="border-top: 1.5px solid #C9C2B4; padding-top: 20px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5B6670;">
+      <span>OPEN SOURCE · FUNDED BY HARDWARE + DONATIONS</span>
+      <span>PRIOR ART: SUPERINSTANCE/SONARVISION</span>
+    </footer>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFileMap&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Content&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showFileMap: this.props.showFileMap ?? true,
+      repos: [
+        { name: "activelog-spec", desc: "The substrate: event envelope, media anchoring by time, merge = set union. The one thing that must not churn.", href: "foundation/repos/activelog-spec/README.md" },
+        { name: "cocapn-app", desc: "Phone (iOS + Android). Wake word, closed command grammar, dictation with pause segmentation, profile-generated autopilot GUI.", href: "foundation/repos/cocapn-app/README.md" },
+        { name: "cocapn-helm-firmware", desc: "ESP32 profile interpreter — no per-brand code. Momentary outputs, TTL, hardware watchdog, override detect.", href: "foundation/repos/cocapn-helm-firmware/README.md" },
+        { name: "autopilot-profiles", desc: "Device support as reviewable data: ComNav P / 2001 / 1001, Simrad, Furuno, Wood Freeman. Community-verified, meter-by-meter.", href: "foundation/repos/autopilot-profiles/README.md" },
+        { name: "cocapn-provisioner", desc: "Dockside installer: flash, guided meter checks, sea trial. Later: draft new device profiles from a conversation.", href: "foundation/repos/cocapn-provisioner/README.md" },
+        { name: "cocapn-desktop", desc: "Peer brain at the helm: whisper.cpp STT, review + annotation, label exports, WiFi bridge to units and cameras.", href: "foundation/repos/cocapn-desktop/README.md" },
+        { name: "activelog-sync", desc: "Optional BYO-Cloudflare fleet sync. Boring on purpose — the distributed-systems problem was solved in the spec.", href: "foundation/repos/activelog-sync/README.md" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

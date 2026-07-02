@@ -1,0 +1,59 @@
+{
+  "profile_version": 1,
+  "id": "comnav-p-series",
+  "display_name": "ComNav P-Series (SPU remote port)",
+  "device_class": "autopilot",
+  "verified": false,
+  "verification_notes": "HYPOTHESIS profile. Electrical facts below must be confirmed with a multimeter on the real SPU remote connector during Phase 1 dockside discovery. The provisioner records each check into this file (verified_by, date, method) before the unit may arm.",
+
+  "electrical": {
+    "interface": "contact_closure",
+    "connector": "SPU remote/jog port (confirm connector type and pinout on unit)",
+    "channels": [
+      { "ch": 0, "function": "port_dodge",  "wiring": "TBD — meter check: press helm port dodge, find closed pair", "verified_by": null },
+      { "ch": 1, "function": "stbd_dodge",  "wiring": "TBD", "verified_by": null },
+      { "ch": 2, "function": "course_port", "wiring": "TBD — may be same pair as dodge with different timing", "verified_by": null },
+      { "ch": 3, "function": "course_stbd", "wiring": "TBD", "verified_by": null },
+      { "ch": 4, "function": "mode_toggle", "wiring": "TBD — some units expose auto/standby on remote, some do not", "verified_by": null }
+    ],
+    "notes": "Wired in PARALLEL with existing remote/helm controls. If the port uses a resistor ladder instead of dry contacts, switch interface to resistor_ladder and fill rungs[] from discovery."
+  },
+
+  "actions": {
+    "port_1":   { "class": "C1", "steps": [{ "kind": "contact", "ch": 2, "hold_ms": 250, "gap_ms": 150 }], "repeat": 1 },
+    "port_10":  { "class": "C1", "steps": [{ "kind": "contact", "ch": 2, "hold_ms": 250, "gap_ms": 150 }], "repeat": 10 },
+    "stbd_1":   { "class": "C1", "steps": [{ "kind": "contact", "ch": 3, "hold_ms": 250, "gap_ms": 150 }], "repeat": 1 },
+    "stbd_10":  { "class": "C1", "steps": [{ "kind": "contact", "ch": 3, "hold_ms": 250, "gap_ms": 150 }], "repeat": 10 },
+    "dodge_port": { "class": "C1", "steps": [{ "kind": "contact", "ch": 0, "hold_ms": 400, "gap_ms": 100 }], "held": true, "ttl_ms": 500, "max_repeat_ms": 10000 },
+    "dodge_stbd": { "class": "C1", "steps": [{ "kind": "contact", "ch": 1, "hold_ms": 400, "gap_ms": 100 }], "held": true, "ttl_ms": 500, "max_repeat_ms": 10000 },
+    "mode_auto":    { "class": "C2", "steps": [{ "kind": "contact", "ch": 4, "hold_ms": 300, "gap_ms": 0 }] },
+    "mode_standby": { "class": "C2", "steps": [{ "kind": "contact", "ch": 4, "hold_ms": 300, "gap_ms": 0 }] }
+  },
+
+  "grammar": {
+    "wake": "cocapn",
+    "cancel": ["belay", "belay that", "cancel"],
+    "commands": [
+      { "say": ["port ten", "come port ten"],            "action": "port_10",  "echo": "port ten" },
+      { "say": ["port one", "port a degree"],            "action": "port_1",   "echo": "port one" },
+      { "say": ["starboard ten", "come starboard ten"],  "action": "stbd_10",  "echo": "starboard ten" },
+      { "say": ["starboard one"],                        "action": "stbd_1",   "echo": "starboard one" },
+      { "say": ["dodge port"],                           "action": "dodge_port", "echo": "dodging port", "held": true },
+      { "say": ["dodge starboard"],                      "action": "dodge_stbd", "echo": "dodging starboard", "held": true },
+      { "say": ["auto", "engage auto"],                  "action": "mode_auto",    "confirm": "engage auto?" },
+      { "say": ["standby", "take it off"],               "action": "mode_standby", "confirm": "go to standby?" }
+    ],
+    "confidence_floor": 0.85,
+    "on_low_confidence": "ask"
+  },
+
+  "gui": {
+    "style": "comnav_p",
+    "layout": [
+      { "row": ["port_10", "port_1", "stbd_1", "stbd_10"] },
+      { "row": ["dodge_port", "dodge_stbd"] },
+      { "row": ["mode_standby", "mode_auto"] }
+    ],
+    "labels": { "port_10": "◀ 10", "port_1": "◀ 1", "stbd_1": "1 ▶", "stbd_10": "10 ▶", "dodge_port": "DODGE ◀", "dodge_stbd": "DODGE ▶", "mode_auto": "AUTO", "mode_standby": "STBY" }
+  }
+}
