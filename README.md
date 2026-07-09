@@ -124,6 +124,39 @@ The architecture is a five-layer stack with one non-negotiable rule: **layers 1�
 (Edge, Brain, ActiveLog) must work fully with no internet, ever.** Layers 4–5
 (Sync, Intelligence) are additive. Full detail in `ARCHITECTURE.md`.
 
+## Where this design has gone since it was written
+
+This brief predates the code that now realizes parts of it. The honest map, as
+of 2026-07-09:
+
+- ✅ **[purplepincher/deckboss](https://github.com/purplepincher/deckboss)** —
+  a shipped, field-ready voice-first fishing logbook (PWA) that knowingly
+  implements a **scoped-down version of this design**. It is an independent
+  codebase (no shared git history with this repo), but the lineage is direct
+  and on the record: its `log-entry.ts` quotes `activelog-spec`'s "No editing.
+  Ever." principle verbatim, and it mirrors this repo's `SAFETY.md` and
+  `activelog-spec/` into its own
+  `docs/cocapn-foundation-mirror/` so the citation can't go stale. What it
+  ships is the ActiveLog *logical model* (append-only, additive corrections,
+  read-time fold) in its own wire shape — not the byte-for-byte v1 envelope.
+- ✅ **[cocapn-marine](https://github.com/SuperInstance/cocapn-marine)** — a
+  real, tested Rust library (NMEA 0183 parsing, PID autopilot, bathymetric
+  recording, deadband monitors) built for the sensor-and-control tier this
+  architecture describes. It stands alone today; nothing here consumes it yet.
+- ⚠️ **The ActiveLog envelope defined here is now the ancestor schema for a
+  wider effort.** The schema-reconciliation record lives in
+  [`purplepincher/purplepincher` `docs/ACTIVELOG_SCHEMA_FOUNDATION.md`](https://github.com/purplepincher/purplepincher/blob/main/docs/ACTIVELOG_SCHEMA_FOUNDATION.md),
+  whose standing rule is taken from this spec: one envelope, many namespaced
+  event types — never a second envelope.
+- 🔮 Everything else in the seven-repo constellation (helm firmware,
+  provisioner, sync, desktop) remains unbuilt, exactly as the sections below
+  state.
+
+**Naming note:** the PyPI package
+[`activelog-agent`](https://github.com/SuperInstance/activelog-agent) is an
+unrelated log-file *monitoring* toolkit — it shares the ActiveLog name but does
+not implement or depend on the event-log format specified here.
+
 ## What this repository does NOT contain
 
 - 🔮 **No runnable app, firmware, or sync server.** The snippets are design
